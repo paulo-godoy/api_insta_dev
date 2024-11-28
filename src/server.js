@@ -8,7 +8,6 @@ const app = express();
 
 app.use(express.json());
 
-// Configuração do Swagger
 const swaggerOptions = {
   definition: {
     openapi: "3.0.0",
@@ -18,7 +17,7 @@ const swaggerOptions = {
       description: "Documentação gerada pelo Swagger para a API",
     },
   },
-  apis: ["./routes.js"], // Aponta para o arquivo onde estão as rotas
+  apis: ["./routes.js"],
 };
 
 const swaggerSpec = swaggerJsdoc(swaggerOptions);
@@ -32,6 +31,6 @@ app.use(routes);
 const PORT = process.env.PORT;
 // Iniciar o servidor
 app.listen(PORT, () => {
-  console.log("Servidor online na porta", PORT);
-  console.log("Acesse a documentação em http://localhost:4002/api-docs");
+  console.log("Servidor online na porta ", PORT);
+  console.log(`Acesse a documentação em http://localhost:${PORT}/api-docs`);
 });
